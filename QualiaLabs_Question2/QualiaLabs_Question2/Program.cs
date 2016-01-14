@@ -12,6 +12,7 @@ namespace QualiaLabs
     {
         static void Main(string[] args)
         {
+            //Various test cases for my implementation 
             string[] test_1 = { "acb", "abc", "bca" };
             string order_1 = "abc";
             string[] sorted_1 = Sort(test_1, order_1);
@@ -33,7 +34,6 @@ namespace QualiaLabs
                 Console.Write(word + " ");
             Console.WriteLine(); 
 
-
             string[] test_4 = { "mynameissabashan", "mynameisbehroz", "mynameissean" };
             string order_4 = "abcdefghijklmnopqrstuvwxyz";
             string[] sorted_4 = Sort(test_4, order_4);
@@ -48,7 +48,6 @@ namespace QualiaLabs
                 Console.Write(word + " ");
             Console.WriteLine(); 
 
-
             string[] test_6 = { "", " ", "  ", "aaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaba", "bbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccccccccccccccccccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "c", "aa", "ab", "ac", "ba", "bb", "bc", "ca", "cb", "cc", "aaa", "aab", "aac", "aba", "abb", "abc", "acc", "bac", "bba", "bab", "bac", "bbc", "bca", "bcb", "bcc", "caa", "cab", "cbb", "cbc", "ccc", "aaaa" };
             string order_6 = "abcdefghijklmnopqrstuvwxyz";
             string[] sorted_6 = Sort(test_6, order_6);
@@ -59,20 +58,23 @@ namespace QualiaLabs
             Console.ReadLine();
         }
 
-        //Run-Time: F(n) = p+n*(m+logn)= O(n*logn) or O(n*m) depending if logn > m or m > logn and noting that p can be at maximum, the size of the alphabet, and thus essentially a constant, 
+        //The below function is my implementation for question 2. 
         //
-        //Constants:p is the size of the lexicographical order, 
-        //          n is the number of strings in the string array,
-        //          m is the size of the strings
+        //:p is the size of the lexicographical order, 
+        //:n is the number of strings in the string array,
+        //:m is the size of the strings
+        //
+        //Run-Time: F(n) = p+n*(m+logn)= O(n*logn) or O(n*m) depending if logn > m or m > logn and noting that p can be at maximum, 
+        //the size of the alphabet, and thus essentially a constant, 
+        //
         public static String[] Sort(String[] un_sorted, string order)
         {
             Dictionary<string, int> priority = new Dictionary<string, int>();
             BST string_score = new BST();
 
-            priority.Add(" ", 0);
-
-            //iterate through every charcter in the user-specified lexicographical ordering (string order)
-            //assign a priority to each character corresponding to their index in the string
+            //iterate through every charcter in the user-specified lexicographical ordering 
+            //assign a priority to each character corresponding to their index in the string+1
+            priority.Add(" ", 0); 
             for (int i = 0; i < order.Length; i++) //O(p)
             {
                 priority.Add(order[i].ToString(), i + 1);
@@ -88,7 +90,7 @@ namespace QualiaLabs
                     {
                         score = 0.0;
                         //Calculate a score similar to calculting the value of a base N character array
-                        //In this case, our N would be the length of order+1 
+                        //In this case, our N would be order.Length + 1 
                         for (int j = 0; j < word.Length; j++) //O(m)
                         {
                             if (priority.ContainsKey(word[j].ToString()))
@@ -97,7 +99,8 @@ namespace QualiaLabs
                                 throw new Exception();
                         }
                     }
-                    //insert each score with their corresponding string as a key,value pair into a BST. This ensures the strings are sorted based on their score form lowest to greatest, when an in-order traveral is performed
+                    //insert each score with their corresponding string as a key,value pair into a BST. This ensures the strings are sorted based on their score form lowest to greatest, 
+                    //when an in-order traveral is performed
                     string_score.insert(score, word); //O(logn)
                 }
             }
