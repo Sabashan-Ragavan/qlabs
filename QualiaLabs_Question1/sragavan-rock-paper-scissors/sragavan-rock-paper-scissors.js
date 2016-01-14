@@ -16,12 +16,9 @@ var intial_game_data = {
 
 if (Meteor.isClient) {
 
-  // main landing page
   Router.route('/', function() {
 
     this.render('start');
-
-    // clear session alert text, if set
 
     // clear session heartbeat, if set
     clearInterval(Session.get('heartbeat'));
@@ -30,8 +27,7 @@ if (Meteor.isClient) {
   // start landing page
   Template.start.helpers({
     openrooms: function() {
-      // only show rooms where one player is "active"
-      var activeTimeout = 10000; // 10s
+      // just get top game
       return CurrentGames.find({}, {limit: 1});
     }
   });
@@ -54,7 +50,7 @@ if (Meteor.isClient) {
       return Router.go('/');
     }
 
-    // determine "player1" or "player2"
+    // make sur either player 1 or player 2
     if (!player.match(/^player[12]$/)) {
       return Router.go('/');
     }
@@ -64,9 +60,9 @@ if (Meteor.isClient) {
       var update = {$set: {}};
       update.$set[player + '.last_active'] = new Date();
       CurrentGames.update(game._id, update);
-    }, 1000)); // 1 sec
+    }, 1000)); // every second
 
-    // render display
+    // render game template
     this.render('game', {
       data: function() { return {
         gameId: game._id,
