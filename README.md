@@ -1,8 +1,9 @@
 # qlabs
 Question 1:
+
 My solution implements the bare bones of a rock paper scissors game which can be played between two individuals. 
 
-Please keep in mind this is my first time working with meteor. Before tackling the problem I spent time learning the framework by following the meteor to-do-list-sample tutorial. I learnt a lot about how meteor utilizes sessions, collections, publisher-subscriber and routes in their framework. 
+Please keep in mind this is my first time working with meteor. Before tackling the problem I spent time learning the framework by following the meteor to-do-list-sample tutorial. I learnt a lot about how meteor utilizes sessions, collections, publisher-subscriber patern and routing in their framework. 
 
 Question 2: 
 
