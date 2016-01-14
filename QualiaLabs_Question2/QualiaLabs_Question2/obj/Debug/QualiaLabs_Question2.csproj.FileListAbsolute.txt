@@ -1,0 +1,6 @@
+c:\users\sabashan\documents\visual studio 2013\Projects\QualiaLabs_Question2\QualiaLabs_Question2\bin\Debug\QualiaLabs_Question2.exe.config
+c:\users\sabashan\documents\visual studio 2013\Projects\QualiaLabs_Question2\QualiaLabs_Question2\bin\Debug\QualiaLabs_Question2.exe
+c:\users\sabashan\documents\visual studio 2013\Projects\QualiaLabs_Question2\QualiaLabs_Question2\bin\Debug\QualiaLabs_Question2.pdb
+c:\users\sabashan\documents\visual studio 2013\Projects\QualiaLabs_Question2\QualiaLabs_Question2\obj\Debug\QualiaLabs_Question2.csprojResolveAssemblyReference.cache
+c:\users\sabashan\documents\visual studio 2013\Projects\QualiaLabs_Question2\QualiaLabs_Question2\obj\Debug\QualiaLabs_Question2.exe
+c:\users\sabashan\documents\visual studio 2013\Projects\QualiaLabs_Question2\QualiaLabs_Question2\obj\Debug\QualiaLabs_Question2.pdb
