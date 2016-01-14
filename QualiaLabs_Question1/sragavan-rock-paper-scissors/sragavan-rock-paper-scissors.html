@@ -1,0 +1,48 @@
+<head>
+  <title>meteor-rps</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="start">
+<ul>
+  {{#with openrooms}}
+    {{#if count}}
+      <p>Currently <strong>{{openrooms.count}} game(s)</strong> available.</p>
+      {{#each this}}
+        <li>
+          Join Room as
+          <a href="{{_id}}/player1">Player 1</a> or
+          <a href="{{_id}}/player2">Player 2</a>
+        </li>
+      {{/each}}
+    {{else}}
+      <button class="new">Start New Game Room</button>
+    {{/if}}
+  {{/with}}
+</ul>
+</template>
+
+<template name="game">
+  <p><a href="/">Go Back</a>.</p>
+  <p>You are <strong>{{player}}</strong>.</p>
+
+  {{#with game gameId}}
+    {{#if result.winner}}
+      <p>Previous Winner: <strong>{{result.winner}}</strong>.</p>
+    {{/if}}
+
+    <p>Current Match:</p>
+    <p>Player 1: {{#if player1.has_action}}READY{{else}}DECIDING{{/if}}.</p>
+    <p>Player 2: {{#if player2.has_action}}READY{{else}}DECIDING{{/if}}.</p>
+    <button data-type="rock">ROCK</button>
+    <button data-type="papr">PAPR</button>
+    <button data-type="scsr">SCSR</button>
+
+  {{/with}}
+</template>
+<template name="loading">
+  <p>Loading...</p>
+</template>
